@@ -1,0 +1,35 @@
+﻿@model QuanLiNhanVien.Models.BoPhan
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2 class="text-center">Xóa bộ phận</h2>
+
+<h3 class="text-center">Bạn có chắc chắn muốn xóa cái này không?</h3>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <hr />
+            <div class="form-group">
+                <label for="Name">ID Bộ Phận:</label>
+                <input type="text" class="form-control" id="Name" value="@Html.DisplayFor(model => model.IDBP)" readonly>
+            </div>
+            <div class="form-group">
+                <label for="Name">Tên Bộ Phận :</label>
+                <input type="text" class="form-control" id="Name" value="@Html.DisplayFor(model => model.NameBP)" readonly>
+            </div>
+            
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-actions no-color text-center">
+                    <input type="submit" value="Xóa" class="btn btn-danger btn-sm" /> |
+                    @Html.ActionLink("Trở Lại", "Index")
+                </div>
+            }
+        </div>
+    </div>
+</div>

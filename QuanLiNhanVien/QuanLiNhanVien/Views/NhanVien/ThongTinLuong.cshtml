@@ -1,0 +1,85 @@
+﻿@model QuanLiNhanVien.Models.Luong
+
+@{
+    ViewBag.Title = "ThongTinLuong";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="text-center" style="margin-top: 70px;"><strong>Bảng lương</strong></h2>
+
+<div class="container center-container" style="margin-top: 1cm;">
+    <div class="table-responsive">
+        <table class="table table-striped table-bordered">
+            <thead class="thead-light">
+                <tr>
+                    <th>Lương cơ bản</th>
+                    <th>Phụ cấp <span class="tooltip">?</span></th>
+                    <th>Khen thưởng <span class="tooltip">?</span></th>
+                    <th>Kỷ luật <span class="tooltip">?</span></th>
+                    <th>Ứng lương <span class="tooltip">?</span></th>
+                    <th>Tháng</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>@Model.LươngCB</td>
+                    <td>@Model.PhuCapNVs.FirstOrDefault().SoTien</td>
+                    <td>@Model.KhenThuongs.FirstOrDefault().SoTien</td>
+                    <td>@Model.KyLuats.FirstOrDefault().SoTien</td>
+                    <td>@Model.UngLuongs.FirstOrDefault().SoTien</td>
+                    <td>@string.Format("{0:MM-yyyy}", Model.Day)</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<style>
+    tr.hover-effect:hover {
+        background-color: #f5f5f5;
+        cursor: pointer;
+    }
+
+    .tooltip {
+        position: relative;
+        display: inline-block;
+        cursor: pointer;
+    }
+
+        .tooltip .tooltip-text {
+            visibility: hidden;
+            width: 120px;
+            background-color: #000;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 5px;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .tooltip:hover .tooltip-text {
+            visibility: visible;
+            opacity: 1;
+        }
+</style>
+
+<script>
+    // JavaScript code to handle tooltip
+    document.addEventListener('DOMContentLoaded', function () {
+        const tooltips = document.querySelectorAll('.tooltip');
+        tooltips.forEach(function (tooltip) {
+            tooltip.addEventListener('mouseover', function () {
+                this.querySelector('.tooltip-text').style.display = 'block';
+            });
+            tooltip.addEventListener('mouseout', function () {
+                this.querySelector('.tooltip-text').style.display = 'none';
+            });
+        });
+    });
+</script>

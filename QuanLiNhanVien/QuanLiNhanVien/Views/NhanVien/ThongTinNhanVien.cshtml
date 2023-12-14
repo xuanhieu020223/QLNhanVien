@@ -1,0 +1,93 @@
+﻿@model QuanLiNhanVien.Models.NhanVien
+
+@{
+    ViewBag.Title = "ThongTinNhanVien";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    .form-group {
+        margin-bottom: 1cm;
+    }
+
+    .center-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin-left: 150px;
+        margin-bottom: -1cm;
+    }
+
+    .col-md-6 {
+        margin-bottom: 3cm;
+    }
+
+    /* Tùy chỉnh màu sắc cho form */
+    .form-control {
+        background-color: #f8f9fa;
+        border: 1px solid #ced4da;
+    }
+
+    /* Tùy chỉnh màu sắc cho label */
+    label {
+        color: #6c757d;
+    }
+</style>
+
+<h2 class="text-center" style="margin-top: 70px;">Thông tin cá nhân</h2>
+
+<div class="center-container">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10">
+                <div class="row">
+                    <div class="col-md-6" style="margin-bottom: 3cm;">
+                        <div class="form-group">
+                            <label for="Name">Tên nhân viên:</label>
+                            <input type="text" class="form-control" id="Name" value="@Model.Name" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="Date">Ngày sinh:</label>
+                            <input type="text" class="form-control" id="Date" value="@string.Format("{0:dd-MM-yyyy}", Model.Date)" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="Gender">Giới tính:</label>
+                            <input type="text" class="form-control" id="Gender" value="@Model.Gender" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="Phone">Số điện thoại:</label>
+                            <input type="text" class="form-control" id="Phone" value="@Model.Phone" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="Address">Địa chỉ:</label>
+                            <input type="text" class="form-control" id="Address" value="@Model.Address" readonly>
+                        </div>
+                    </div>
+                    <div class="col-md-6" style="margin-bottom: 0.5cm;">
+                        <div class="form-group">
+                            <label for="CCCD">Số CCCD:</label>
+                            <input type="text" class="form-control" id="CCCD" value="@Model.CCCD" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="BoPhan">Bộ phận:</label>
+                            <input type="text" class="form-control" id="BoPhan" value="@Model.BoPhan.NameBP" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="ChucVu">Chức vụ:</label>
+                            <input type="text" class="form-control" id="ChucVu" value="@Model.ChucVu.NameCV" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="PhongBan">Phòng ban:</label>
+                            <input type="text" class="form-control" id="PhongBan" value="@Model.PhongBan.NamePB" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="TrinhDo">Trình độ học vấn:</label>
+                            <input type="text" class="form-control" id="TrinhDo" value="@Model.TrinhDo.NameTD" readonly>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

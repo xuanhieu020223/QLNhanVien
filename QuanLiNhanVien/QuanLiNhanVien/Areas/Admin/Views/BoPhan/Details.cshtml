@@ -1,0 +1,30 @@
+﻿@model QuanLiNhanVien.Models.BoPhan
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2 class="text-center">Thông tin chi tiết</h2>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <hr />
+            <div class="form-group">
+                <label for="Name">ID Bộ Phận:</label>
+                <input type="text" class="form-control" id="Name" value="@Html.DisplayFor(model => model.IDBP)" readonly>
+            </div>
+            <div class="form-group">
+                <label for="Name">Tên Bộ Phận :</label>
+                <input type="text" class="form-control" id="Name" value="@Html.DisplayFor(model => model.NameBP)" readonly>
+            </div>
+            
+            <hr />
+            <p class="text-center">
+                @Html.ActionLink("Sửa", "Edit", new { id = Model.IDBP }, new { @class = "btn btn-primary btn-sm" })
+                @Html.ActionLink("Trở Lại", "Index")
+            </p>
+        </div>
+    </div>
+</div>

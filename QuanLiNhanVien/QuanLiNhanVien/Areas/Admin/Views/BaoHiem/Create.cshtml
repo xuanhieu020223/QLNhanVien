@@ -1,0 +1,79 @@
+﻿@model QuanLiNhanVien.Models.BaoHiem
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2 class="text-center">Thêm Bảo Hiểm </h2>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-horizontal">
+                    <hr />
+
+                    <!-- IDBH Field -->
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.IDBH, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.IDBH, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.IDBH, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <!-- MaNV DropdownList Field -->
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.MaNV, "MaNV", htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.DropDownList("MaNV", null, htmlAttributes: new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.MaNV, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <!-- NameBH Field -->
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.NameBH, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.NameBH, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.NameBH, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <!-- SoTien Field -->
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.SoTien, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.SoTien, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.SoTien, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <!-- MoTa Field -->
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.MoTa, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.MoTa, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.MoTa, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Thêm " class="btn btn-primary" />
+                            @Html.ActionLink("Trở Lại", "Index")
+                        </div>
+                    </div>
+                </div>
+            }
+
+            <!-- Back to List Link -->
+        <div>
+        </div>
+        </div>
+    </div>
+</div>

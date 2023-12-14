@@ -1,0 +1,38 @@
+﻿@model QuanLiNhanVien.Models.ChamCong
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2 class="text-center">Xóa chấm công</h2>
+
+<h3 class="text-center">Bạn có chắc chắn muốn xóa cái này không?</h3>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <hr />
+            <div class="form-group">
+                <label for="Name">Ngày:</label>
+                <input type="text" class="form-control" id="Name" value="@string.Format("{0:dd-MM-yyyy}", Model.Day)" readonly>
+            </div>
+            <div class="form-group">
+                <label for="Name">Tên Loại Công :</label>
+                <input type="text" class="form-control" id="Name" value="@Html.DisplayFor(model => model.LoaiCong.NameLC)" readonly>
+            </div>
+            <div class="form-group">
+                <label for="Name">Vị Trí :</label>
+                <input type="text" class="form-control" id="Name" value="@Html.DisplayFor(model => model.Luong.ViTri)" readonly>
+            </div>
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-actions no-color">
+                    <input type="submit" value="Xóa" class="btn btn-danger btn-sm" /> |
+                    @Html.ActionLink("Trở Lại", "Index")
+                </div>
+            }
+        </div>
+    </div>
+</div>

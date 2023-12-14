@@ -1,0 +1,60 @@
+﻿@model QuanLiNhanVien.Models.Luong
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<style>
+    .container {
+        margin-top: 50px; /* Adjust the margin-top value to center the form vertically */
+    }
+
+    .panel {
+        max-width: 600px; /* Set the maximum width for better readability */
+        margin: auto; /* Center the panel horizontally */
+    }
+
+    .btn-back {
+        margin-right: 10px; /* Add margin to the right of the "Trở lại" link */
+    }
+</style>
+
+<h2 class="text-center">Thông tin chi tiết</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="container">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                @Html.HiddenFor(model => model.MaNV)
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.LươngCB, htmlAttributes: new { @class = "control-label col-md-3" })
+                    <div class="col-md-9">
+                        @Html.EditorFor(model => model.LươngCB, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.LươngCB, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Day, htmlAttributes: new { @class = "control-label col-md-3" })
+                    <div class="col-md-9">
+                        @Html.EditorFor(model => model.Day, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Day, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group text-center ">
+                    <div class="col-md-offset-3 col-md-9">
+                        <button type="submit" class="btn btn-primary">Lưu</button>
+                        @Html.ActionLink("Trở lại", "Index", null, new { @class = "btn btn-default btn-back" })
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}

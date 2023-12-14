@@ -1,0 +1,51 @@
+﻿@model QuanLiNhanVien.Models.PhuCapNV
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2 class="text-center">Xóa phụ cấp</h2>
+
+<h3 class="text-center">Bạn có chắc chắn muốn xóa cái này không?</h3>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <hr />
+            <div class="form-group">
+                <label class="control-label">@Html.DisplayNameFor(model => model.NamePC):</label>
+                <div>
+                    @Html.DisplayFor(model => model.NamePC)
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label">@Html.DisplayNameFor(model => model.SoTien):</label>
+                <div>
+                    @Html.DisplayFor(model => model.SoTien)
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label">@Html.DisplayNameFor(model => model.MoTa):</label>
+                <div>
+                    @Html.DisplayFor(model => model.MoTa)
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label">@Html.DisplayNameFor(model => model.Luong.ViTri):</label>
+                <div>
+                    @Html.DisplayFor(model => model.Luong.ViTri)
+                </div>
+            </div>
+
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-actions no-color text-center">
+                    <input type="submit" value="Xóa" class="btn btn-danger btn-sm" /> |
+                    @Html.ActionLink("Trở Lại", "Index")
+                </div>
+            }
+        </div>
+    </div>
+</div>

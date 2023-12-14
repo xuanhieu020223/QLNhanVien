@@ -1,0 +1,83 @@
+﻿@model QuanLiNhanVien.Models.UngLuong
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Thông tin chi tiết</h2>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <hr />
+            <dl class="dl-horizontal">
+                <div class="row">
+                    <div class="col-md-2">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.NhanVien.Name)
+                        </dt>
+                    </div>
+                    <div class="col-md-10">
+                        <dd>
+                            @Html.DisplayFor(model => model.NhanVien.Name)
+                        </dd>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.SoTien)
+                        </dt>
+                    </div>
+                    <div class="col-md-10">
+                        <dd>
+                            @Html.DisplayFor(model => model.SoTien)
+                        </dd>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.TrangThai)
+                        </dt>
+                    </div>
+                    <div class="col-md-10">
+                        <dd>
+                            @Html.DisplayFor(model => model.TrangThai)
+                        </dd>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Day)
+                        </dt>
+                    </div>
+                    <div class="col-md-10">
+                        <dd>
+                            @Html.DisplayFor(model => model.Day)
+                        </dd>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2">
+                        <dt>
+                            Vị Trí
+                        </dt>
+                    </div>
+                    <div class="col-md-10">
+                        <dd>
+                            @Html.DisplayFor(model => model.NhanVien.ChucVu.NameCV)
+                        </dd>
+                    </div>
+                </div>
+            </dl>
+            <hr />
+            <p>
+                @Html.ActionLink("Sửa ", "Edit", new { id = Model.IDUL }, new { @class = "btn btn-primary btn-sm" }) |
+                @Html.ActionLink("Trở Lại", "Index")
+            </p>
+        </div>
+    </div>
+</div>

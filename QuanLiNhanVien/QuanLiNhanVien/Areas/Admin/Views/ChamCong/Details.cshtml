@@ -1,0 +1,32 @@
+﻿@model QuanLiNhanVien.Models.ChamCong
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2 class="text-center">Chi tiết Chấm công</h2>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <hr />
+            <div class="form-group">
+                <label for="Name">Ngày:</label>
+                <input type="text" class="form-control" id="Name" value="@string.Format("{0:dd-MM-yyyy}", Model.Day)" readonly>
+            </div>
+            <div class="form-group">
+                <label for="Name">Tên Loại Công :</label>
+                <input type="text" class="form-control" id="Name" value="@Html.DisplayFor(model => model.LoaiCong.NameLC)" readonly>
+            </div>
+            <div class="form-group">
+                <label for="Name">Vị Trí :</label>
+                <input type="text" class="form-control" id="Name" value="@Html.DisplayFor(model => model.Luong.ViTri)" readonly>
+            </div>
+            <p>
+                @Html.ActionLink("Sửa", "Edit", new { id = Model.IDCC }, new { @class = "btn btn-primary btn-sm" }) |
+                @Html.ActionLink("Trở Lại", "Index")
+            </p>
+        </div>
+    </div>
+</div>

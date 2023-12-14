@@ -1,0 +1,64 @@
+﻿@model QuanLiNhanVien.Models.LoaiCong
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2 class="text-center">Chi tiết loại công</h2>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <hr />
+            <dl class="dl-horizontal">
+                <div class="row">
+                    <div class="col-md-2">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.NameLC)
+                        </dt>
+                    </div>
+                    <div class="col-md-10">
+                        <dd>
+                            @Html.DisplayFor(model => model.NameLC)
+                        </dd>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-2">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.HeSo)
+                        </dt>
+                    </div>
+                    <div class="col-md-10">
+                        <dd>
+                            @Html.DisplayFor(model => model.HeSo)
+                        </dd>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-2">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.MoTa)
+                        </dt>
+                    </div>
+                    <div class="col-md-10">
+                        <dd>
+                            @Html.DisplayFor(model => model.MoTa)
+                        </dd>
+                    </div>
+                </div>
+
+            </dl>
+            <hr />
+            <p>
+                @Html.ActionLink("Sửa", "Edit", new { id = Model.IDLC }, new { @class = "btn btn-primary btn-sm" }) |
+                @Html.ActionLink("Trở Lại", "Index")
+            </p>
+        </div>
+       
+    </div>
+</div>
+</div>

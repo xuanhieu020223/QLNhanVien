@@ -1,0 +1,41 @@
+﻿@model QuanLiNhanVien.Models.PhuCapNV
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2 class="text-center">Thông tin chi tiết phụ cấp nhân viên</h2>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <hr />
+            <div class="form-group">
+                <label for="NamePC">ID Phụ Cấp:</label>
+                <input type="text" class="form-control" id="NamePC" value="@Html.DisplayFor(model => model.IDPC)" readonly>
+            </div>
+            <div class="form-group">
+                <label for="NamePC">Tên Phụ Cấp:</label>
+                <input type="text" class="form-control" id="NamePC" value="@Html.DisplayFor(model => model.NamePC)" readonly>
+            </div>
+            <div class="form-group">
+                <label for="SoTien">Số Tiền:</label>
+                <input type="text" class="form-control" id="SoTien" value="@Html.DisplayFor(model => model.SoTien)" readonly>
+            </div>
+            <div class="form-group">
+                <label for="MoTa">Mô Tả:</label>
+                <input type="text" class="form-control" id="MoTa" value="@Html.DisplayFor(model => model.MoTa)" readonly>
+            </div>
+            <div class="form-group">
+                <label for="ViTri">Vị Trí:</label>
+                <input type="text" class="form-control" id="ViTri" value="@Html.DisplayFor(model => model.Luong.ViTri)" readonly>
+            </div>
+            <hr />
+            <p class="text-center">
+                @Html.ActionLink("Sửa", "Edit", new { id = Model.IDPC }, new { @class = "btn btn-primary btn-sm" })
+                @Html.ActionLink("Trở Lại", "Index")
+            </p>
+        </div>
+    </div>
+</div>

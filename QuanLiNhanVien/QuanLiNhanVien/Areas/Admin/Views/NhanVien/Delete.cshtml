@@ -1,0 +1,82 @@
+﻿@model QuanLiNhanVien.Models.NhanVien
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2 class="text-center">Xóa Nhân Viên</h2>
+
+<h3 class="text-center">Bạn có chắc chắn muốn xóa nhân viên này không?</h3>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <hr />
+            <div class="form-group">
+                <label for="Name">Tên nhân viên:</label>
+                <input type="text" class="form-control" id="Name" value="@Html.DisplayFor(model => model.Name)" readonly>
+            </div>
+            <div class="form-group">
+                <label for="Gender">Giới tính:</label>
+                <input type="text" class="form-control" id="Gender" value="@Html.DisplayFor(model => model.Gender)" readonly>
+            </div>
+            <div class="form-group">
+                <label for="Date">Ngày sinh:</label>
+                <input type="text" class="form-control" id="Date" value="@Html.DisplayFor(model => model.Date)" readonly>
+            </div>
+            <div class="form-group">
+                <label for="Phone">Số điện thoại:</label>
+                <input type="text" class="form-control" id="Phone" value="@Html.DisplayFor(model => model.Phone)" readonly>
+            </div>
+            <div class="form-group">
+                <label for="CCCD">Số CCCD:</label>
+                <input type="text" class="form-control" id="CCCD" value="@Html.DisplayFor(model => model.CCCD)" readonly>
+            </div>
+            <div class="form-group">
+                <label for="Address">Địa chỉ:</label>
+                <input type="text" class="form-control" id="Address" value="@Html.DisplayFor(model => model.Address)" readonly>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <hr />
+            
+            <div class="form-group">
+                <label for="BoPhan">Bộ phận:</label>
+                <input type="text" class="form-control" id="BoPhan" value="@Html.DisplayFor(model => model.BoPhan.NameBP)" readonly>
+            </div>
+            <div class="form-group">
+                <label for="ChucVu">Chức vụ:</label>
+                <input type="text" class="form-control" id="ChucVu" value="@Html.DisplayFor(model => model.ChucVu.NameCV)" readonly>
+            </div>
+            <div class="form-group">
+                <label for="PhongBan">Phòng ban:</label>
+                <input type="text" class="form-control" id="PhongBan" value="@Html.DisplayFor(model => model.PhongBan.NamePB)" readonly>
+            </div>
+            <div class="form-group">
+                <label for="TrinhDo">Trình độ học vấn:</label>
+                <input type="text" class="form-control" id="TrinhDo" value="@Html.DisplayFor(model => model.TrinhDo.NameTD)" readonly>
+            </div>
+            <div class="form-group">
+                <label for="PhongBan">Tài khoản:</label>
+                <input type="text" class="form-control" id="PhongBan" value="@Html.DisplayFor(model => model.userName)" readonly>
+            </div>
+            <div class="form-group">
+                <label for="TrinhDo">Mật Khẩu:</label>
+                <input type="text" class="form-control" id="TrinhDo" value="@Html.DisplayFor(model => model.passWord)" readonly>
+            </div>
+        </div>
+    </div>
+        
+            <hr />
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-actions no-color text-center">
+                    <input type="submit" value="Xóa" class="btn btn-danger btn-sm" /> |
+                    @Html.ActionLink("Trở lại", "Index")
+                </div>
+            }
+     </div>
+</div>

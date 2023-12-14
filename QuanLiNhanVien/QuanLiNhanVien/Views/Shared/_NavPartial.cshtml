@@ -1,0 +1,54 @@
+﻿@{ var username = Session["NhanVien"] as QuanLiNhanVien.Models.NhanVien; }
+
+@if (username != null)
+{
+    <div id="layoutSidenav_nav">
+        <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+            <span class="text-center">@username.Name</span>
+            <div class="sb-sidenav-menu">
+                <div class="nav">
+                    <div class="sb-sidenav-menu-heading"></div>
+                    <a class="nav-link" href="@Url.Action("Index", "Home")">
+                        <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                        Trang chủ
+                    </a>
+                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                        <div class="sb-nav-link-icon"><i class="icon fa fa-user fa-fw "></i></div>
+                        Hồ sơ
+                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                    </a>
+                    <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                        <nav class="sb-sidenav-menu-nested nav">
+                            <a class="nav-link" href="@Url.Action("ThongTinNhanVien","NhanVien",new {id = username.MaNV})">Thông tin cá nhân</a>
+                        </nav>
+                    </div>
+                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
+                        <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
+                        Lương
+                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                    </a>
+                    <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
+                        <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
+                            <a class="nav-link collapsed" href="@Url.Action("ThongTinLuong","NhanVien",new {id = username.MaNV})" >
+                                Thông tin lương
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseError" aria-expanded="false" aria-controls="pagesCollapseError">
+                               Ứng lương
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                        </nav>
+                    </div>
+                    <a class="nav-link" href="@Url.Action("TangCa","NhanVien",new {id = username.MaNV})">
+                        <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
+                        Lịch Tăng Ca
+                    </a>
+                    <a class="nav-link" href="@Url.Action("BaoHiem","NhanVien",new {id = username.MaNV})">
+                        <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                        Bảo Hiểm 
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </div>
+}

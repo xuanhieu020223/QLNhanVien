@@ -1,0 +1,59 @@
+﻿@model IEnumerable<QuanLiNhanVien.Models.UngLuong>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2 class="text-center">Thông Tin Ứng Lương</h2>
+
+<p>
+    @Html.ActionLink("Thêm ", "Create", null, new { @class = "btn btn-success" })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Tên Nhân Viên
+        </th>
+        <th>
+            Số Tiền
+        </th>
+        <th>
+            Trạng Thái
+        </th>
+        <th>
+            Ngày
+        </th>
+        <th>
+            Chức Vụ
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NhanVien.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SoTien)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TrangThai)
+        </td>
+        <td>
+            @string.Format("{0:dd-MM-yyyy}", item.Day)
+        </td>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.NhanVien.ChucVu.NameCV)
+        </td>
+        <td>
+            @Html.ActionLink("Sửa", "Edit", new { id = item.MaNV }, new { @class = "btn btn-primary btn-sm" }) |
+            @Html.ActionLink("Chi tiết", "Details", new { id = item.MaNV }, new { @class = "btn btn-info btn-sm" }) |
+            @Html.ActionLink("Xóa", "Delete", new { id = item.MaNV }, new { @class = "btn btn-danger btn-sm" })
+        </td>
+    </tr>
+}
+
+</table>

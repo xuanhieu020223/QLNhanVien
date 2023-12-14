@@ -1,0 +1,67 @@
+﻿@model QuanLiNhanVien.Models.TangCa
+@{
+    ViewBag.Title = "TangCa";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="text-center" style="margin-top: 70px;"><strong>Tăng Ca</strong></h2>
+<div class="container center-container" style="margin-top: 1cm;">
+    <div class="table-responsive">
+        <table class="table table-striped table-bordered">
+            <thead class="thead-light">
+                <tr>
+                    <th>Tên Loại Ca</th>
+                    <th>Hệ Số <span class="tooltip">?</span></th>
+                    <th>Số giờ <span class="tooltip">?</span></th>
+                    <th>Ngày <span class="tooltip">?</span></th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>@Model.LoaiCa.NameLC</td>
+                    <td>@Model.LoaiCa.HeSo</td>
+                    <td>@Model.SoGio</td>
+                    <td> @string.Format("{0:dd-MM-yyyy}", Model.Day)</td>
+
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<style>
+    tr.hover-effect:hover {
+        background-color: #f5f5f5;
+        cursor: pointer;
+    }
+
+    .tooltip {
+        position: relative;
+        display: inline-block;
+        cursor: pointer;
+    }
+
+        .tooltip .tooltip-text {
+            visibility: hidden;
+            width: 120px;
+            background-color: #000;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 5px;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .tooltip:hover .tooltip-text {
+            visibility: visible;
+            opacity: 1;
+        }
+</style>
+
